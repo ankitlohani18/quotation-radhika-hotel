@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Quotation – 744</title>
+    <link rel="stylesheet" href="/css/edit-quotation.css">
+</head>
+<body>
+
+<div th:replace="~{common/header}"></div>
+
+<h1>Quotation</h1>
+
+<form action="/quotation/update" method="post">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="name" th:value="${quotation.name}" /></td>
+        </tr>
+        <tr>
+            <th>Mobile No.</th>
+            <td><input type="text" name="mobileNo" th:value="${quotation.mobileNo}" /></td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td><input type="text" name="date" th:value="${quotation.date}" /></td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" name="address" th:value="${quotation.address}" /></td>
+        </tr>
+        <tr>
+            <th>Sub</th>
+            <td><input type="text" name="subject" th:value="${quotation.subject}" /></td>
+        </tr>
+        <tr>
+            <th>Thank you</th>
+            <td><textarea name="thankYou" th:value="${quotation.thankYou}"></textarea></td>
+        </tr>
+    </table>
+
+    <h2>Technical Proposal</h2>
+    <h3>Proposed Site</h3>
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" name="name" th:value="${quotation.name}" /></td>
+        </tr>
+        <tr>
+            <th>Location:</th>
+            <td><input type="text" name="location" th:value="${quotation.location}" /></td>
+        </tr>
+        <tr>
+            <th>Solar PV System Specification</th>
+        </tr>
+        <tr>
+            <th>Plant Capacity:</th>
+            <td><input type="text" name="plantCapacity" th:value="${quotation.plantCapacity}" /></td>
+        </tr>
+        <tr>
+            <th>Module Technology</th>
+            <td><input type="text" name="moduleTechnology" th:value="${quotation.moduleTechnology}" /></td>
+        </tr>
+        <tr>
+            <th>Mounting Structure Technology</th>
+            <td><input type="text" name="mountingStructureTechnology" th:value="${quotation.mountingStructureTechnology}" /></td>
+        </tr>
+        <tr>
+            <th>Project Scheme:</th>
+            <td><input type="text" name="projectScheme" th:value="${quotation.projectScheme}" /></td>
+        </tr>
+        <tr>
+            <th>Power Evacuation</th>
+            <td><input type="text" name="powerEvacuation" th:value="${quotation.powerEvacuation}" /></td>
+        </tr>
+        <tr>
+            <th>Solar Plant Output Connection</th>
+            <td><input type="text" name="solarPlantOutputConnection" th:value="${quotation.solarPlantOutputConnection}" /></td>
+        </tr>
+        <tr>
+            <th>Approx. Area</th>
+            <td><input type="text" name="approxArea" th:value="${quotation.approxArea}" /></td>
+        </tr>
+        <tr>
+            <th>Scheme</th>
+            <td><input type="text" name="scheme" th:value="${quotation.scheme}" /></td>
+        </tr>
+        <tr>
+            <th>Proposal Based Inquiry Received</th>
+        </tr>
+        <tr>
+            <th>From:</th>
+            <td><input type="text" name="from" th:value="${quotation.inquiryReceivedFrom}" /></td>
+        </tr>
+        <tr>
+            <th>Date:</th>
+            <td><input type="text" name="from" th:value="${quotation.proposalBasesInquiryReceivedDate}" /></td>
+        </tr>
+        <tr>
+            <th>Offer Validity:</th>
+            <td><input type="text" name="from" th:value="${quotation.offerValidity}" /></td>
+        </tr>
+    </table>
+
+    <button type="submit">Save Changes</button>
+    <a href="javascript:history.back()" class="btn btn-secondary">Back</a>
+</form>
+<div th:replace="~{common/footer}"></div>
+</body>
+</html>

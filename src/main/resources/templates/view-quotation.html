@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Quotation</title>
+    <link href="/css/view-quotation.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{common/header}"></div>
+
+<h1>Quotation Details</h1>
+
+<table>
+    <tr>
+        <th colspan="2">Quotation Details</th>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${quotation.name}"></td>
+    </tr>
+    <tr>
+        <td>Mobile No:</td>
+        <td th:text="${quotation.mobileNo}"></td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td th:text="${quotation.date}"></td>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <td th:text="${quotation.address}"></td>
+    </tr>
+    <tr>
+        <td>Subject:</td>
+        <td th:text="${quotation.subject}"></td>
+    </tr>
+    <tr>
+        <td>Thank You:</td>
+        <td th:text="${quotation.thankYou}"></td>
+    </tr>
+    <tr>
+        <th colspan="2">Proposed Site</th>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${quotation.name}"></td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td th:text="${quotation.location}"></td>
+    </tr>
+    <tr>
+        <th colspan="2">Solar PV System Specification: On-Grid Rooftop</th>
+    </tr>
+    <tr>
+        <td>Plant Capacity:</td>
+        <td th:text="${quotation.plantCapacity}"></td>
+    </tr>
+    <tr>
+        <td>Module Technology:</td>
+        <td th:text="${quotation.moduleTechnology}"></td>
+    </tr>
+    <tr>
+        <td>Mounting Structure Technology:</td>
+        <td th:text="${quotation.mountingStructureTechnology}"></td>
+    </tr>
+    <tr>
+        <td>Project Scheme:</td>
+        <td th:text="${quotation.projectScheme}"></td>
+    </tr>
+    <tr>
+        <td>Power Evacuation:</td>
+        <td th:text="${quotation.powerEvacuation}"></td>
+    </tr>
+    <tr>
+        <td>Solar Plant Output Connection:</td>
+        <td th:text="${quotation.solarPlantOutputConnection}"></td>
+    </tr>
+    <tr>
+        <td>Approx. Area:</td>
+        <td th:text="${quotation.approxArea}"></td>
+    </tr>
+    <tr>
+        <td>Scheme:</td>
+        <td th:text="${quotation.scheme}"></td>
+    </tr>
+    <tr>
+        <th colspan="2">Proposal Bases Inquiry Received</th>
+    </tr>
+    <tr>
+        <td>From:</td>
+        <td th:text="${quotation.inquiryReceivedFrom}"></td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td th:text="${quotation.proposalBasesInquiryReceivedDate}"></td>
+    </tr>
+    <tr>
+        <td>Offer Validity:</td>
+        <td th:text="${quotation.offerValidity}"></td>
+    </tr>
+</table>
+<br>
+<div style="text-align: center">
+    <a class="btn btn-primary" th:href="'/quotation/generatePdf/' + ${quotation.id}">Generate PDF</a>
+    <a class="btn btn-primary" th:href="'/quotation/edit/' + ${quotation.id}">Edit</a>
+    <a class="btn btn-danger" th:href="'/quotation/delete/' + ${quotation.id}">Delete</a>
+    <a class="btn btn-secondary" href="javascript:history.back()">Back</a>
+    <a class="btn btn-primary" href="/">Home</a>
+</div>
+
+</body>
+<div th:replace="~{common/footer}"></div>
+</html>

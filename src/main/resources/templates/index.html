@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+<!-- Include Header -->
+<div th:replace="~{common/header}"></div>
+
+<div class="container">
+    <h2>Quotation Management</h2>
+
+    <div class="buttons">
+        <a href="/quotation/getAll" class="btn btn-primary">View All Quotation</a>
+        <a href="/quotation/showCreateForm" class="btn btn-success">Create New Quotation</a>
+    </div>
+</div>
+
+<!-- Include Footer -->
+<div th:replace="~{common/footer}"></div>
+
+</body>
+</html>

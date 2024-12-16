@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Quotation</title>
+    <link href="/css/create-quotation.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{common/header}"></div>
+
+<h1 id="createNewQtHead">Create New Quotation</h1>
+
+<form method="post" th:action="@{/quotation/create}" th:object="${quotation}">
+    <table>
+        <tr>
+            <th colspan="2">Quotation Details</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input id="name" required th:field="*{name}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Mobile No:</td>
+            <td><input id="mobileNo" required th:field="*{mobileNo}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td><input id="date" required th:field="*{date}" type="date"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><textarea id="address" required th:field="*{address}"></textarea></td>
+        </tr>
+        <tr>
+            <td>Subject:</td>
+            <td><input id="subject" required th:field="*{subject}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Thank You:</td>
+            <td><input id="thankYou" required th:field="*{thankYou}" type="text"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Proposed Site Details</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input id="proposedSiteName" required th:field="*{proposedSiteName}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td><input id="proposedSiteLocation" required th:field="*{location}" type="text"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Solar PV System Specification</th>
+        </tr>
+        <tr>
+            <td>Plant Capacity:</td>
+            <td><input id="plantCapacity" required th:field="*{plantCapacity}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Module Technology:</td>
+            <td><input id="moduleTechnology" required th:field="*{moduleTechnology}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Mounting Structure Technology:</td>
+            <td><input id="mountingStructureTechnology" required th:field="*{mountingStructureTechnology}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Project Scheme:</td>
+            <td><input id="projectScheme" required th:field="*{projectScheme}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Power Evacuation:</td>
+            <td><input id="powerEvacuation" required th:field="*{powerEvacuation}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Solar Plant Output Connection:</td>
+            <td><input id="solarPlantOutputConnection" required th:field="*{solarPlantOutputConnection}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Approx. Area:</td>
+            <td><input id="approxArea" required th:field="*{approxArea}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Scheme:</td>
+            <td><input id="scheme" required th:field="*{scheme}" type="text"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Proposal Bases Inquiry Received</th>
+        </tr>
+        <tr>
+            <td>From:</td>
+            <td><input id="inquiryReceivedFrom" required th:field="*{inquiryReceivedFrom}" type="text"></td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td><input id="proposalBasesInquiryReceivedDate" th:field="*{proposalBasesInquiryReceivedDate}" type="date" required></td>
+        </tr>
+        <tr>
+            <td>Offer Validity:</td>
+            <td><input id="offerValidity" required th:field="*{offerValidity}" type="text"></td>
+        </tr>
+    </table>
+
+    <div>
+        <button type="submit">Create Quotation</button>
+    </div>
+    <br>
+    <div style="text-align: center">
+        <a class="btn btn-primary" href="/">Home</a>
+        <a class="btn btn-secondary" href="javascript:history.back()">Back</a>
+    </div>
+</form>
+
+<div th:replace="~{common/footer}"></div>
+</body>
+</html>
