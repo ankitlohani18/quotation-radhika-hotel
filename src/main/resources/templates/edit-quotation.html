@@ -12,7 +12,7 @@
 
 <h1>Quotation</h1>
 
-<form action="/quotation/update" method="post">
+<form th:action="'/quotation/update/' + ${quotation.id}" method="post">
     <table>
         <tr>
             <th>Name</th>
@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <th>Date</th>
-            <td><input type="text" name="date" th:value="${quotation.date}" /></td>
+            <td><input type="date" name="date" th:value="${quotation.date}" /></td>
         </tr>
         <tr>
             <th>Address</th>
@@ -45,7 +45,7 @@
     <table>
         <tr>
             <th>Name:</th>
-            <td><input type="text" name="name" th:value="${quotation.name}" /></td>
+            <td><input type="text" name="proposedSiteName" th:value="${quotation.proposedSiteName}" /></td>
         </tr>
         <tr>
             <th>Location:</th>
@@ -91,15 +91,15 @@
         </tr>
         <tr>
             <th>From:</th>
-            <td><input type="text" name="from" th:value="${quotation.inquiryReceivedFrom}" /></td>
+            <td><input type="text" name="inquiryReceivedFrom" th:value="${quotation.inquiryReceivedFrom}" /></td>
         </tr>
         <tr>
             <th>Date:</th>
-            <td><input type="text" name="from" th:value="${quotation.proposalBasesInquiryReceivedDate}" /></td>
+            <td><input type="date" name="proposalBasesInquiryReceivedDate" th:value="${quotation.proposalBasesInquiryReceivedDate}" /></td>
         </tr>
         <tr>
             <th>Offer Validity:</th>
-            <td><input type="text" name="from" th:value="${quotation.offerValidity}" /></td>
+            <td><input type="text" name="offerValidity" th:value="${quotation.offerValidity}" /></td>
         </tr>
     </table>
 

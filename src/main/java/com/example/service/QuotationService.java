@@ -37,8 +37,35 @@ public class QuotationService {
         return quotation.orElse(null);
     }
 
-    public void updateQuotation(Quotation quotation) {
-        quotationRepository.save(quotation);
+    public void updateQuotation(Long id, Quotation quotation) {
+        Quotation existQuotation = findQuotationById(id);
+        if (existQuotation != null) {
+            existQuotation.setName(quotation.getName());
+            existQuotation.setMobileNo(quotation.getMobileNo());
+            existQuotation.setDate(quotation.getDate());
+            existQuotation.setAddress(quotation.getAddress());
+            existQuotation.setSubject(quotation.getSubject());
+            existQuotation.setThankYou(quotation.getThankYou());
+
+            existQuotation.setProposedSiteName(quotation.getProposedSiteName());
+            existQuotation.setLocation(quotation.getLocation());
+
+            existQuotation.setPlantCapacity(quotation.getPlantCapacity());
+            existQuotation.setModuleTechnology(quotation.getModuleTechnology());
+            existQuotation.setMountingStructureTechnology(quotation.getMountingStructureTechnology());
+            existQuotation.setProjectScheme(quotation.getProjectScheme());
+            existQuotation.setPowerEvacuation(quotation.getPowerEvacuation());
+            existQuotation.setSolarPlantOutputConnection(quotation.getSolarPlantOutputConnection());
+            existQuotation.setApproxArea(quotation.getApproxArea());
+            existQuotation.setScheme(quotation.getScheme());
+
+            existQuotation.setInquiryReceivedFrom(quotation.getInquiryReceivedFrom());
+            existQuotation.setProposalBasesInquiryReceivedDate(quotation.getProposalBasesInquiryReceivedDate());
+            existQuotation.setOfferValidity(quotation.getOfferValidity());
+        } else {
+            throw new RuntimeException("Unable to find quotation with id " + id);
+        }
+        quotationRepository.save(existQuotation);
     }
 
     public void deleteQuotation(Long id) {

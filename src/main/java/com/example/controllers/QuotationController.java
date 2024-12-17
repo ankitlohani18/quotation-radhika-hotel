@@ -51,9 +51,9 @@ public class QuotationController {
     }
 
     // Update a quotation
-    @PostMapping("/update")
-    public String updateQuotation(@ModelAttribute Quotation quotation) {
-        quotationService.updateQuotation(quotation);
+    @PostMapping("/update/{id}")
+    public String updateQuotation(@PathVariable Long id, @ModelAttribute Quotation quotation) {
+        quotationService.updateQuotation(id, quotation);
         return "redirect:/";
     }
 
