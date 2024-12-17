@@ -2,11 +2,8 @@ package com.example.controllers;
 
 import com.example.entity.Quotation;
 import com.example.service.QuotationService;
-import com.itextpdf.text.DocumentException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -70,24 +67,6 @@ public class QuotationController {
         Quotation quotation = quotationService.findQuotationById(id);
         model.addAttribute("quotation", quotation);
         return "view-quotation";
-    }
-
-    // Generate PDF for a quotation
-    @GetMapping("/generatePdf/{id}")
-    public ResponseEntity<byte[]> generateQuotationPdf(@PathVariable Long id) {
-        try {
-            byte[] pdfBytes = quotationService.generatePdfForQuotation(id);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("Content-Disposition", "inline; filename=quotation.pdf");
-            headers.add("Content-Type", "application/pdf");
-
-            return ResponseEntity.ok()
-                    .headers(headers)
-                    .body(pdfBytes);
-        } catch (DocumentException e) {
-            throw new RuntimeException("Error generating PDF", e);
-        }
     }
 
 }
