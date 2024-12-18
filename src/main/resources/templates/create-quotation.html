@@ -10,7 +10,7 @@
 
 <h1 id="createNewQtHead">Create New Quotation</h1>
 
-<form method="post" th:action="@{/quotation/create}" th:object="${quotation}">
+<form method="post" id="createQuotationForm" th:action="@{/quotation/create}" th:object="${quotation}">
     <table>
         <tr>
             <th colspan="2">Quotation Details</th>
@@ -39,6 +39,7 @@
             <td>Thank You:</td>
             <td><input id="thankYou" required th:field="*{thankYou}" type="text"></td>
         </tr>
+
         <tr>
             <th colspan="2">Proposed Site Details</th>
         </tr>
@@ -50,6 +51,7 @@
             <td>Location:</td>
             <td><input id="proposedSiteLocation" required th:field="*{location}" type="text"></td>
         </tr>
+
         <tr>
             <th colspan="2">Solar PV System Specification</th>
         </tr>
@@ -85,6 +87,7 @@
             <td>Scheme:</td>
             <td><input id="scheme" required th:field="*{scheme}" type="text"></td>
         </tr>
+
         <tr>
             <th colspan="2">Proposal Bases Inquiry Received</th>
         </tr>
@@ -102,9 +105,127 @@
         </tr>
     </table>
 
-    <div>
+    <br><h2 style="text-align: center">Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:</h2>
+    <table id="componentsTable">
+        <tr>
+            <th>S No.</th>
+            <th>Components</th>
+            <th>Specifications</th>
+            <th>Make</th>
+            <th>Z</th>
+            <th>Qty</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><input type="text" value="Solar PV Modules"></td>
+            <td><input type="text" value="MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW"></td>
+            <td><input type="text" value="SUNBOND"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="15 NOS"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input type="text" value="Solar Inverter"></td>
+            <td><input type="text" value="On-grid type MPPT based solar inverter with grid energy export function 03 KW"></td>
+            <td><input type="text" value="V SOLE"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><input type="text" value="Mounting Structure"></td>
+            <td><input type="text" value="Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><input type="text" value="AC Cables"></td>
+            <td><input type="text" value="AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)"></td>
+            <td><input type="text" value="Polycab/ISI"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="AS REQUIRED"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><input type="text" value="DC Cables"></td>
+            <td><input type="text" value="DC side copper"></td>
+            <td><input type="text" value="Polycab/ISI"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="AS REQUIRED"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><input type="text" value="Distribution Boxes (DC)"></td>
+            <td><input type="text" value="DC distribution box with built-in SPD and DC Fuses IP65 protected"></td>
+            <td><input type="text" value="HEVELLS & PHOENIX"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><input type="text" value="Distribution Boxes (AC)"></td>
+            <td><input type="text" value="AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR"></td>
+            <td><input type="text" value="HEVELLS & PHOENIX"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><input type="text" value="Earthing"></td>
+            <td><input type="text" value="Copper bonded chemical earthings. Insulated copper conductor for earthing connection"></td>
+            <td><input type="text" value="TRUE POWER"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><input type="text" value="System Monitoring"></td>
+            <td><input type="text" value="Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter"></td>
+            <td><input type="text" value="AS PER INVERTER"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><input type="text" value="MC4 Connectors"></td>
+            <td><input type="text" value="TUV approved, UV protected STD"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="AS REQUIRED"></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td><input type="text" value="Switchgears"></td>
+            <td><input type="text" value="MCBs, MCCBs, Isolators etc."></td>
+            <td><input type="text" value="HAVELLS/ABB"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="AS REQUIRED"></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td><input type="text" value="Balance of System"></td>
+            <td><input type="text" value="TUV approved PVC conduits, cable ties, electric tapes, enclosures etc."></td>
+            <td><input type="text" value="Polycab/Steel grip"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="AS REQUIRED"></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td><input type="text" value="Net Meter"></td>
+            <td><input type="text" value="Net meter and modem for MPEB"></td>
+            <td><input type="text" value="SECURE/HPL"></td>
+            <td><input type="text" value=""></td>
+            <td><input type="text" value="1"></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <div id="createQuotationBtn">
         <button type="submit">Create Quotation</button>
     </div>
+
     <br>
     <div style="text-align: center">
         <a class="btn btn-primary" href="/">Home</a>
@@ -115,3 +236,30 @@
 <div th:replace="~{common/footer}"></div>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        let $componentsTable = $("#componentsTable");
+        let componentTableData = $componentsTable.data();
+
+        $('#createQuotationForm').on('submit', function(e) {
+            e.preventDefault();  // Prevent the default form submission
+
+            $.ajax({
+                type: 'POST',
+                url: '/quotation/create',  // Update with your form action URL
+                data: $(this).serialize(),  // Serialize form data
+                success: function(response) {
+                    // Handle success (e.g., redirect, show a message, etc.)
+                    alert('Quotation created successfully!');
+                    window.location.href = '/';  // Redirect to home
+                },
+                error: function(error) {
+                    // Handle errors
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
