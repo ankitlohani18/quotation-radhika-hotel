@@ -3,7 +3,6 @@ package com.example.controllers;
 import com.example.entity.Quotation;
 import com.example.entity.Component;
 import com.example.service.QuotationService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +28,12 @@ public class QuotationController {
     // Show form to add a new quotation
     @GetMapping("/showCreateForm")
     public String showCreateQuotationForm(Model model) {
-        model.addAttribute("quotation", new Quotation());
-        model.addAttribute("components", new Component());
+        Quotation quotation = new Quotation();
+        model.addAttribute("quotation", quotation);
+        if (quotation.getComponents() == null) {
+            quotation.setComponents(new Component());
+        }
+        model.addAttribute("components", quotation.getComponents());
         return "create-quotation";
     }
 
@@ -38,12 +41,12 @@ public class QuotationController {
     @PostMapping("/create")
     public String addQuotation(@ModelAttribute Quotation quotation) {
         quotationService.saveQuotation(quotation);
-        return "redirect:/quotation/view/"+quotation.getId();
+        return "redirect:/quotation/view/" + quotation.getId();
     }
 
     // Show form to edit a quotation
     @GetMapping("/edit/{id}")
-    public String showEditQuotationForm(@PathVariable Long id, Model model, HttpServletRequest request) {
+    public String showEditQuotationForm(@PathVariable Long id, Model model) {
         Quotation quotation = quotationService.findQuotationById(id);
         model.addAttribute("quotation", quotation);
         return "edit-quotation";
@@ -53,7 +56,7 @@ public class QuotationController {
     @PostMapping("/update/{id}")
     public String updateQuotation(@PathVariable Long id, @ModelAttribute Quotation quotation) {
         quotationService.updateQuotation(id, quotation);
-        return "redirect:/";
+        return "redirect:/quotation/getAll";
     }
 
     // Delete a specific quotation

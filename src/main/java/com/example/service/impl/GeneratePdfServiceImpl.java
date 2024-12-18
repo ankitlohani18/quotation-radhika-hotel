@@ -88,42 +88,42 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         // Add the header cell that spans two columns
         addColspanHeader(proposedSiteTable, "Proposed Site", boldFont);
         // Adding remaining cells with border directly
-        addTableCellWithBorder(proposedSiteTable, "Name: ", boldFont);
-        addTableCellWithBorder(proposedSiteTable, quotation.getProposedSiteName(), normalFont);
-        addTableCellWithBorder(proposedSiteTable, "Location: ", boldFont);
-        addTableCellWithBorder(proposedSiteTable, quotation.getLocation(), normalFont);
+        addTableCellWithBorder(proposedSiteTable, "Name: ", boldFont, null);
+        addTableCellWithBorder(proposedSiteTable, quotation.getProposedSiteName(), normalFont, null);
+        addTableCellWithBorder(proposedSiteTable, "Location: ", boldFont, null);
+        addTableCellWithBorder(proposedSiteTable, quotation.getLocation(), normalFont, null);
         document.add(proposedSiteTable);
 
         // Solar PV Specification Table
         PdfPTable solarTable = createTable(2);
         addColspanHeader(solarTable, "Solar PV System Specification: On-Grid Rooftop", boldFont);
-        addTableCellWithBorder(solarTable, "Plant Capacity: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getPlantCapacity(), normalFont);
-        addTableCellWithBorder(solarTable, "Module Technology: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getModuleTechnology(), normalFont);
-        addTableCellWithBorder(solarTable, "Mounting Structure Technology: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getMountingStructureTechnology(), normalFont);
-        addTableCellWithBorder(solarTable, "Project Scheme: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getProjectScheme(), normalFont);
-        addTableCellWithBorder(solarTable, "Power Evacuation: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getPowerEvacuation(), normalFont);
-        addTableCellWithBorder(solarTable, "Solar Plant Output Connection: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getSolarPlantOutputConnection(), normalFont);
-        addTableCellWithBorder(solarTable, "Approx. Area: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getApproxArea(), normalFont);
-        addTableCellWithBorder(solarTable, "Scheme: ", boldFont);
-        addTableCellWithBorder(solarTable, quotation.getScheme(), normalFont);
+        addTableCellWithBorder(solarTable, "Plant Capacity: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getPlantCapacity(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Module Technology: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getModuleTechnology(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Mounting Structure Technology: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getMountingStructureTechnology(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Project Scheme: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getProjectScheme(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Power Evacuation: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getPowerEvacuation(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Solar Plant Output Connection: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getSolarPlantOutputConnection(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Approx. Area: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getApproxArea(), normalFont, null);
+        addTableCellWithBorder(solarTable, "Scheme: ", boldFont, null);
+        addTableCellWithBorder(solarTable, quotation.getScheme(), normalFont, null);
         document.add(solarTable);
 
         // Proposal Bases Inquiry Table
         PdfPTable inquiryTable = createTable(2);
         addColspanHeader(inquiryTable, "Proposal Bases Inquiry Received", boldFont);
-        addTableCellWithBorder(inquiryTable, "From: ", boldFont);
-        addTableCellWithBorder(inquiryTable, quotation.getInquiryReceivedFrom(), normalFont);
-        addTableCellWithBorder(inquiryTable, "Date: ", boldFont);
-        addTableCellWithBorder(inquiryTable, String.valueOf(quotation.getProposalBasesInquiryReceivedDate()), normalFont);
-        addTableCellWithBorder(inquiryTable, "Offer Validity: ", boldFont);
-        addTableCellWithBorder(inquiryTable, quotation.getOfferValidity(), normalFont);
+        addTableCellWithBorder(inquiryTable, "From: ", boldFont, null);
+        addTableCellWithBorder(inquiryTable, quotation.getInquiryReceivedFrom(), normalFont, null);
+        addTableCellWithBorder(inquiryTable, "Date: ", boldFont, null);
+        addTableCellWithBorder(inquiryTable, String.valueOf(quotation.getProposalBasesInquiryReceivedDate()), normalFont, null);
+        addTableCellWithBorder(inquiryTable, "Offer Validity: ", boldFont, null);
+        addTableCellWithBorder(inquiryTable, quotation.getOfferValidity(), normalFont, null);
         document.add(inquiryTable);
 
         addMultipleNewLines(document, 1);
@@ -132,33 +132,57 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         // Technical Specifications Table
         PdfPTable technicalSpecificationsTable = createTable(6);
 
-        addTableCellWithBorder(technicalSpecificationsTable, "S No.", boldFont);
-        addTableCellWithBorder(technicalSpecificationsTable, "Component", boldFont);
-        addTableCellWithBorder(technicalSpecificationsTable, "Specification", boldFont);
-        addTableCellWithBorder(technicalSpecificationsTable, "Make", boldFont);
-        addTableCellWithBorder(technicalSpecificationsTable, "Z", boldFont);
-        addTableCellWithBorder(technicalSpecificationsTable, "Quantity", boldFont);
-        technicalSpecificationsTable.setWidthPercentage(100);
+        addTableCellWithBorder(technicalSpecificationsTable, "S No.", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(technicalSpecificationsTable, "Component", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(technicalSpecificationsTable, "Specification", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(technicalSpecificationsTable, "Make", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(technicalSpecificationsTable, "Z", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(technicalSpecificationsTable, "Quantity", boldFont, BaseColor.LIGHT_GRAY);
 
         // Add rows to the technical specifications table
-        addTableCellWithBorder(technicalSpecificationsTable, "1", normalFont);  // S No.
-        addTableCellWithBorder(technicalSpecificationsTable, "Solar PV Module", normalFont);  // Component
-        addTableCellWithBorder(technicalSpecificationsTable, "Mono or Polycrystalline", normalFont);  // Specification
-        addTableCellWithBorder(technicalSpecificationsTable, "XYZ Solar Co.", normalFont);  // Make
-        addTableCellWithBorder(technicalSpecificationsTable, "Module Efficiency: 18-20%", normalFont);  // Z (optional, custom info like efficiency)
-        addTableCellWithBorder(technicalSpecificationsTable, "10", normalFont);  // Quantity
+        technicalSpecificationsTable.setWidthPercentage(110);
+        technicalSpecificationsTable.setPaddingTop(10);
+        // Define the data for rows
+        String[][] data = {
+                {"1", "Solar PV Module", "Mono or Polycrystalline", "XYZ Solar Co.", "Module Efficiency: 18-20%", "10"},
+                {"2", "Solar Inverter", "On-grid type MPPT based solar inverter 3 KW", "V SOLE", "", "1"},
+                {"3", "Mounting Structure", "Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW", "", "", "1"},
+                {"4", "AC Cables", "AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)", "Polycab/ISI", "", "AS REQUIRED"},
+                {"5", "DC Cables", "DC side copper", "Polycab/ISI", "", "AS REQUIRED"},
+                {"6", "Distribution Boxes (DC)", "DC distribution box with built-in SPD and DC Fuses IP65 protected", "HEVELLS & PHOENIX", "", "1"},
+                {"7", "Distribution Boxes (AC)", "AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR", "HEVELLS & PHOENIX", "", "1"},
+                {"8", "Earthing", "Copper bonded chemical earthings. Insulated copper conductor for earthing connection", "TRUE POWER", "", "1"},
+                {"9", "System Monitoring", "Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter", "AS PER INVERTER", "", "1"},
+                {"10", "MC4 Connectors", "TUV approved, UV protected STD", "", "", "AS REQUIRED"},
+                {"11", "Switchgears", "MCBs, MCCBs, Isolators etc.", "HAVELLS/ABB", "", "AS REQUIRED"},
+                {"12", "Balance of System", "TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.", "Polycab/Steel grip", "", "AS REQUIRED"},
+                {"13", "Net Meter", "Net meter and modem for MPEB", "SECURE/HPL", "", "1"}
+        };
+        // Adding rows using loop
+        for (String[] row : data) {
+            for (String cellData : row) {
+                addTableCellWithBorder(technicalSpecificationsTable, cellData, normalFont, null);
+            }
+        }
 
-        // Additional rows as per requirement
         document.add(technicalSpecificationsTable);
 
-        addMultipleNewLines(document, 2);
+        addMultipleNewLines(document, 7);
         addParagraph(document, "As per your requirements we are sending you the quotation for ON-grid Solar Power Project.\n" +
                 "Kindly find the details below:", normalFont, Element.ALIGN_LEFT, 10);
 
-        addParagraph(document, "PLANT SIZE", boldFont, Element.ALIGN_LEFT, 10);
-        addParagraph(document, "Total Amount Payable", normalFont, Element.ALIGN_LEFT, 10);
-        addParagraph(document, "PRICES – 3 KW ON GRID POWER PLANT: 1,90,000/-", normalFont, Element.ALIGN_LEFT, 10);
-        addParagraph(document, "Direct Subsidy Benefit in consumer account after commissioning of solar power plant: RS. 78,000/-", normalFont, Element.ALIGN_LEFT, 10);
+        PdfPTable priceTable = createTable(3);
+
+        addTableCellWithBorder(priceTable, "PLANT SIZE", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(priceTable, "Total Amount Payable", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(priceTable, "Direct Subsidy Benefit in consumer account after commissioning of solar power plant:", boldFont, BaseColor.LIGHT_GRAY);
+
+        addTableCellWithBorder(priceTable, "PRICES – 3  KW ON GRID POWER PLANT", boldFont, null);
+        addTableCellWithBorder(priceTable, "1,90,000/-", boldFont, null);
+        addTableCellWithBorder(priceTable, "RS. 78,000/-", boldFont, null);
+
+        document.add(priceTable);
+
         addParagraph(document, "SUBSIDY AS PER GOVT. GUIDELINE (MNRE): RS . 78,000/- IN 45-90 DAYS OF COMPLETION", normalFont, Element.ALIGN_LEFT, 10);
         addParagraph(document, "SUBSIDY WILL BE CREDITED TO CUSTOMER’S ACCOUNT", normalFont, Element.ALIGN_LEFT, 10);
 
@@ -285,10 +309,13 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         table.addCell(cell);
     }
 
-    private void addTableCellWithBorder(PdfPTable table, String text, Font font) {
+    private void addTableCellWithBorder(PdfPTable table, String text, Font font, BaseColor backgroundColor) {
         PdfPCell cell = new PdfPCell(new Phrase(text, font));
         cell.setBorder(Rectangle.BOX);
         cell.setPadding(10);
+        if (backgroundColor != null) {
+            cell.setBackgroundColor(backgroundColor);  // Apply background color if provided
+        }
         table.addCell(cell);
         table.setSpacingAfter(15);
     }

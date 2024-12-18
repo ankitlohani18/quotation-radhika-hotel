@@ -58,6 +58,15 @@ textarea {
     font-size: 1rem;
 }
 
+.input-field {
+    width: 100%; /* Full width for better alignment */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
 #addRowBtn {
     display: block;
     margin: 0 auto; /* Centers the button horizontally */

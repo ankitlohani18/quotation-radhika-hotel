@@ -99,6 +99,51 @@
         <td th:text="${quotation.offerValidity}"></td>
     </tr>
 </table>
+
+<br><h2 style="text-align: center">Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:</h2>
+<table id="componentsTable">
+    <thead>
+    <tr>
+        <th>S No.</th>
+        <th>Components</th>
+        <th>Specifications</th>
+        <th>Make</th>
+        <th>Z</th>
+        <th>Qty</th>
+    </tr>
+    </thead>
+    <tbody>
+    <script>
+        const technicalSpecificationsTables = [
+            { id: 1, component: 'Solar PV Modules', specification: 'MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW', make: 'SUNBOND', z: '', qty: '15 NOS' },
+            { id: 2, component: 'Solar Inverter', specification: 'On-grid type MPPT based solar inverter with grid energy export function 03 KW', make: 'V SOLE', z: '', qty: '1' },
+            { id: 3, component: 'Mounting Structure', specification: 'Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW', make: '', z: '', qty: '' },
+            { id: 4, component: 'AC Cables', specification: 'AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)', make: 'Polycab/ISI', z: '', qty: 'AS REQUIRED' },
+            { id: 5, component: 'DC Cables', specification: 'DC side copper', make: 'Polycab/ISI', z: '', qty: 'AS REQUIRED' },
+            { id: 6, component: 'Distribution Boxes (DC)', specification: 'DC distribution box with built-in SPD and DC Fuses IP65 protected', make: 'HEVELLS & PHOENIX', z: '', qty: '1' },
+            { id: 7, component: 'Distribution Boxes (AC)', specification: 'AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR', make: 'HEVELLS & PHOENIX', z: '', qty: '1' },
+            { id: 8, component: 'Earthing', specification: 'Copper bonded chemical earthings. Insulated copper conductor for earthing connection', make: 'TRUE POWER', z: '', qty: '1' },
+            { id: 9, component: 'System Monitoring', specification: 'Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter', make: 'AS PER INVERTER', z: '', qty: '1' },
+            { id: 10, component: 'MC4 Connectors', specification: 'TUV approved, UV protected STD', make: '', z: '', qty: 'AS REQUIRED' },
+            { id: 11, component: 'Switchgears', specification: 'MCBs, MCCBs, Isolators etc.', make: 'HAVELLS/ABB', z: '', qty: 'AS REQUIRED' },
+            { id: 12, component: 'Balance of System', specification: 'TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.', make: 'Polycab/Steel grip', z: '', qty: 'AS REQUIRED' },
+            { id: 13, component: 'Net Meter', specification: 'Net meter and modem for MPEB', make: 'SECURE/HPL', z: '', qty: '1' }
+        ];
+
+        technicalSpecificationsTables.forEach(technicalSpecificationsTable => {
+            document.write(`<tr>
+                                <td>${technicalSpecificationsTable.id}</td>
+                                <td>${technicalSpecificationsTable.component}</td>
+                                <td>${technicalSpecificationsTable.specification}</td>
+                                <td>${technicalSpecificationsTable.make}</td>
+                                <td>${technicalSpecificationsTable.z}</td>
+                                <td>${technicalSpecificationsTable.qty}</td>
+                            </tr>`
+            );
+        });
+    </script>
+    </tbody>
+</table>
 <br>
 <div style="text-align: center">
     <a class="btn btn-primary" th:href="'/generatePdf/' + ${quotation.id}">Generate PDF</a>
