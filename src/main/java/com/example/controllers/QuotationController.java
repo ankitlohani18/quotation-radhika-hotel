@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.entity.Quotation;
+import com.example.entity.Component;
 import com.example.service.QuotationService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +28,15 @@ public class QuotationController {
 
     // Show form to add a new quotation
     @GetMapping("/showCreateForm")
-    public String showCreateQuotationForm(Model model, HttpServletRequest request) {
+    public String showCreateQuotationForm(Model model) {
         model.addAttribute("quotation", new Quotation());
+        model.addAttribute("components", new Component());
         return "create-quotation";
     }
 
     // Add a new quotation
     @PostMapping("/create")
-    public String addQuotation(@ModelAttribute Quotation quotation, Model model) {
+    public String addQuotation(@ModelAttribute Quotation quotation) {
         quotationService.saveQuotation(quotation);
         return "redirect:/quotation/view/"+quotation.getId();
     }

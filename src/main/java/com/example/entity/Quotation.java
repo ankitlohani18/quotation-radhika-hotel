@@ -1,9 +1,6 @@
 package com.example.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -38,6 +35,10 @@ public class Quotation {
     private String inquiryReceivedFrom;
     private LocalDate proposalBasesInquiryReceivedDate;
     private String offerValidity;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "components_id")
+    private Component components;
 
     public Long getId() {
         return id;
@@ -197,6 +198,14 @@ public class Quotation {
 
     public void setOfferValidity(String offerValidity) {
         this.offerValidity = offerValidity;
+    }
+
+    public Component getComponents() {
+        return components;
+    }
+
+    public void setComponents(Component components) {
+        this.components = components;
     }
 }
 
