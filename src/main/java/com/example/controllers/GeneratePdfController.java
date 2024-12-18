@@ -2,7 +2,6 @@ package com.example.controllers;
 
 import com.example.service.impl.GeneratePdfServiceImpl;
 import com.itextpdf.text.DocumentException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/generatePdf")
 public class GeneratePdfController {
 
-    @Autowired
-    private GeneratePdfServiceImpl generatePdfService;
+    private final GeneratePdfServiceImpl generatePdfService;
+
+    public GeneratePdfController(GeneratePdfServiceImpl generatePdfService) {
+        this.generatePdfService = generatePdfService;
+    }
 
     // Generate PDF for a quotation
     @GetMapping("/{id}")
