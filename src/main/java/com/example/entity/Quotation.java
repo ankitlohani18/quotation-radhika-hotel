@@ -50,6 +50,34 @@ public class Quotation {
     private String balanceOfSystemQty;
     private String netMeterQty;
 
+    private String plantSize;
+    private String totalAmountPayable;
+    private String directSubsidyBenefit;
+
+    public String getPlantSize() {
+        return plantSize;
+    }
+
+    public void setPlantSize(String plantSize) {
+        this.plantSize = plantSize;
+    }
+
+    public String getTotalAmountPayable() {
+        return totalAmountPayable;
+    }
+
+    public void setTotalAmountPayable(String totalAmountPayable) {
+        this.totalAmountPayable = totalAmountPayable;
+    }
+
+    public String getDirectSubsidyBenefit() {
+        return directSubsidyBenefit;
+    }
+
+    public void setDirectSubsidyBenefit(String directSubsidyBenefit) {
+        this.directSubsidyBenefit = directSubsidyBenefit;
+    }
+
     public Long getId() {
         return id;
     }

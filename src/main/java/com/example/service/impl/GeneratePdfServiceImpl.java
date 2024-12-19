@@ -8,7 +8,11 @@ import com.itextpdf.text.pdf.*;
 
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Optional;
 
 @Service
@@ -20,7 +24,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         this.quotationRepository = quotationRepository;
     }
 
-    public byte[] generatePdfForQuotation(Long quotationId) throws DocumentException {
+    public byte[] generatePdfForQuotation(Long quotationId) throws DocumentException, IOException {
         Optional<Quotation> quotationOptional = quotationRepository.findById(quotationId);
         Quotation quotation = new Quotation();
 
@@ -42,14 +46,14 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         Font smallerFont = new Font(normalFont.getBaseFont(), 8, Font.BOLD);
 
         // Add Logo
-        addImage(document, "C:/Users/aloha/Downloads/billGenerateProject/src/main/resources/static/image/LogoImg.png", 150, 80, Element.ALIGN_RIGHT);
+        addImageFromClasspath(document, "static/image/LogoImg.png", 150, 80, Element.ALIGN_RIGHT);
 
         // Title Section
         addParagraph(document, "RADHIKA ENTERPRISES", titleFont, Element.ALIGN_CENTER, 10);
         addParagraph(document, "HEADING TOWARDS HEALTHIER EARTH", normalFont, Element.ALIGN_CENTER, 20);
 
         // Add Hotel Image
-        addImage(document, "C:/Users/aloha/Downloads/billGenerateProject/src/main/resources/static/image/HotelImg.png", 350, 200, Element.ALIGN_CENTER);
+        addImageFromClasspath(document, "static/image/HotelImg.png", 350, 200, Element.ALIGN_CENTER);
 
         // Contact Information
         addParagraph(document, "E-Mail:  sanjayboriya13@gmail.com | Contact: 9993957179\n" +
@@ -178,9 +182,9 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         addTableCellWithBorder(priceTable, "Total Amount Payable", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(priceTable, "Direct Subsidy Benefit in consumer account after commissioning of solar power plant:", boldFont, BaseColor.LIGHT_GRAY);
 
-        addTableCellWithBorder(priceTable, "PRICES – 3  KW ON GRID POWER PLANT", boldFont, null);
-        addTableCellWithBorder(priceTable, "1,90,000/-", boldFont, null);
-        addTableCellWithBorder(priceTable, "RS. 78,000/-", boldFont, null);
+        addTableCellWithBorder(priceTable, quotation.getPlantSize(), boldFont, null);
+        addTableCellWithBorder(priceTable, quotation.getTotalAmountPayable(), boldFont, null);
+        addTableCellWithBorder(priceTable, quotation.getDirectSubsidyBenefit(), boldFont, null);
 
         document.add(priceTable);
 
@@ -284,9 +288,12 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         document.add(paragraph);
     }
 
-    private void addImage(Document document, String path, float width, float height, int alignment) {
-        try {
-            Image image = Image.getInstance(path);
+    private void addImageFromClasspath(Document document, String path, float width, float height, int alignment) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
+            if (inputStream == null) {
+                throw new FileNotFoundException("File not found: " + path);
+            }
+            Image image = Image.getInstance(ImageIO.read(inputStream), null);
             image.scaleAbsolute(width, height);
             image.setAlignment(alignment);
             document.add(image);

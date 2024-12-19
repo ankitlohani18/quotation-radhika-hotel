@@ -149,20 +149,9 @@ div[th\:replace] {
     margin: 20px 0;
 }
 
-#technicalSpecificationsTable {
-    width: 80%; /* Ensure the table takes full width */
-    border-collapse: collapse; /* Collapse table borders */
-}
-
-#technicalSpecificationsTable th,
-#technicalSpecificationsTable td {
-    border: 1px solid black; /* Add black border to table cells */
-    padding: 8px;
-    text-align: left;
-}
-
-#technicalSpecificationsTable th {
-    background-color: #f4f4f4; /* Optional: Background color for headers for better visibility */
-    color: black;
+#technicalTableHead {
     text-align: center;
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+    font-size: 1.3rem;
 }

@@ -109,7 +109,7 @@
         <th>Components</th>
         <th>Specifications</th>
         <th>Make</th>
-        <th>Z</th>
+        <th></th>
         <th>Quantity</th>
     </tr>
     <tr>
@@ -218,12 +218,24 @@
     </tr>
 </table>
 <br>
+<table>
+    <tr>
+        <th>PLANT SIZE</th>
+        <th>Total Amount Payable</th>
+        <th>Direct Subsidy Benefit</th>
+    </tr>
+    <tr>
+        <td th:text="${quotation.plantSize}"></td>
+        <td th:text="${quotation.totalAmountPayable}"></td>
+        <td th:text="${quotation.directSubsidyBenefit}"></td>
+    </tr>
+</table>
+<br>
 <div style="text-align: center">
-    <a class="btn btn-primary" th:href="'/generatePdf/' + ${quotation.id}">Generate PDF</a>
-    <a class="btn btn-primary" th:href="'/quotation/edit/' + ${quotation.id}">Edit</a>
     <a class="btn btn-danger" th:href="'/quotation/delete/' + ${quotation.id}">Delete</a>
-    <a class="btn btn-secondary" href="javascript:history.back()">Back</a>
     <a class="btn btn-primary" href="/">Home</a>
+    <a class="btn btn-primary" th:href="'/quotation/edit/' + ${quotation.id}">Edit</a>
+    <a class="btn btn-green" th:href="'/generatePdf/' + ${quotation.id}">Generate PDF</a>
 </div>
 
 </body>

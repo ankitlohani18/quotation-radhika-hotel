@@ -104,17 +104,17 @@
             <td><input id="offerValidity" required th:field="*{offerValidity}" type="text"></td>
         </tr>
     </table>
-
+    <br>
     <table id="technicalSpecificationsTable">
         <tr>
-            <th colspan="6">Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:</th>
+            <th colspan="6" id="technicalTableHead">Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:</th>
         </tr>
         <tr>
             <th>S No.</th>
             <th>Components</th>
             <th>Specifications</th>
             <th>Make</th>
-            <th>Z</th>
+            <th></th>
             <th>Quantity</th>
         </tr>
         <tr>
@@ -222,15 +222,23 @@
             <td><input id="netMeterQty" required th:field="*{netMeterQty}" type="text"></td>
         </tr>
     </table>
-
+    <br><br>
+    <table>
+        <tr>
+            <th>PLANT SIZE</th>
+            <th>Total Amount Payable</th>
+            <th>Direct Subsidy Benefit</th>
+        </tr>
+        <tr>
+            <td><input id="plantSize" required th:field="*{plantSize}" type="text"></td>
+            <td><input id="totalAmountPayable" required th:field="*{totalAmountPayable}" type="text"></td>
+            <td><input id="directSubsidyBenefit" required th:field="*{directSubsidyBenefit}" type="text"></td>
+        </tr>
+    </table>
     <br><br>
     <div id="createQuotationBtn">
-        <button type="submit">Create Quotation</button>
-    </div>
-
-    <div style="text-align: center">
-        <a class="btn btn-primary" href="/">Home</a>
-        <a class="btn btn-secondary" href="javascript:history.back()">Back</a>
+        <a class="btn btn-secondary" href="/">Got to Dashboard</a>
+        <button type="submit">Save Quotation</button>
     </div>
 </form>
 

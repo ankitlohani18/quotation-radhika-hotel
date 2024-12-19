@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/generatePdf")
 public class GeneratePdfController {
@@ -34,6 +36,8 @@ public class GeneratePdfController {
                     .body(pdfBytes);
         } catch (DocumentException e) {
             throw new RuntimeException("Error generating PDF", e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -52,6 +52,14 @@ table tr:hover {
     background-color: #0056b3;
 }
 
+.btn-green {
+    background-color: #3dbe4e;
+}
+
+.btn-green:hover {
+    background-color: #5cb85c;
+}
+
 .btn-danger {
     background-color: #dc3545;
     border: none;
