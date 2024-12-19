@@ -1,7 +1,6 @@
 package com.example.controllers;
 
 import com.example.entity.Quotation;
-import com.example.entity.Component;
 import com.example.service.QuotationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,10 +29,6 @@ public class QuotationController {
     public String showCreateQuotationForm(Model model) {
         Quotation quotation = new Quotation();
         model.addAttribute("quotation", quotation);
-        if (quotation.getComponents() == null) {
-            quotation.setComponents(new Component());
-        }
-        model.addAttribute("components", quotation.getComponents());
         return "create-quotation";
     }
 

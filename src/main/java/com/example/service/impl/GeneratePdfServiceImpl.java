@@ -39,6 +39,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         Font headerFont = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLACK);
         Font boldFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.BLACK);
         Font normalFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.BLACK);
+        Font smallerFont = new Font(normalFont.getBaseFont(), 8, Font.BOLD);
 
         // Add Logo
         addImage(document, "C:/Users/aloha/Downloads/billGenerateProject/src/main/resources/static/image/LogoImg.png", 150, 80, Element.ALIGN_RIGHT);
@@ -131,6 +132,9 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         addParagraph(document, "Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:", boldFont, Element.ALIGN_CENTER, 15);
         // Technical Specifications Table
         PdfPTable technicalSpecificationsTable = createTable(6);
+        technicalSpecificationsTable.setWidthPercentage(113);
+        technicalSpecificationsTable.setHorizontalAlignment(Element.ALIGN_CENTER);
+        technicalSpecificationsTable.setPaddingTop(10);
 
         addTableCellWithBorder(technicalSpecificationsTable, "S No.", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(technicalSpecificationsTable, "Component", boldFont, BaseColor.LIGHT_GRAY);
@@ -139,29 +143,26 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         addTableCellWithBorder(technicalSpecificationsTable, "Z", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(technicalSpecificationsTable, "Quantity", boldFont, BaseColor.LIGHT_GRAY);
 
-        // Add rows to the technical specifications table
-        technicalSpecificationsTable.setWidthPercentage(110);
-        technicalSpecificationsTable.setPaddingTop(10);
         // Define the data for rows
         String[][] data = {
-                {"1", "Solar PV Module", "Mono or Polycrystalline", "XYZ Solar Co.", "Module Efficiency: 18-20%", "10"},
-                {"2", "Solar Inverter", "On-grid type MPPT based solar inverter 3 KW", "V SOLE", "", "1"},
-                {"3", "Mounting Structure", "Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW", "", "", "1"},
-                {"4", "AC Cables", "AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)", "Polycab/ISI", "", "AS REQUIRED"},
-                {"5", "DC Cables", "DC side copper", "Polycab/ISI", "", "AS REQUIRED"},
-                {"6", "Distribution Boxes (DC)", "DC distribution box with built-in SPD and DC Fuses IP65 protected", "HEVELLS & PHOENIX", "", "1"},
-                {"7", "Distribution Boxes (AC)", "AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR", "HEVELLS & PHOENIX", "", "1"},
-                {"8", "Earthing", "Copper bonded chemical earthings. Insulated copper conductor for earthing connection", "TRUE POWER", "", "1"},
-                {"9", "System Monitoring", "Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter", "AS PER INVERTER", "", "1"},
-                {"10", "MC4 Connectors", "TUV approved, UV protected STD", "", "", "AS REQUIRED"},
-                {"11", "Switchgears", "MCBs, MCCBs, Isolators etc.", "HAVELLS/ABB", "", "AS REQUIRED"},
-                {"12", "Balance of System", "TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.", "Polycab/Steel grip", "", "AS REQUIRED"},
-                {"13", "Net Meter", "Net meter and modem for MPEB", "SECURE/HPL", "", "1"}
+                {"1", "Solar PV Module", "MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW", "SUNBOND", "", quotation.getSolarPVModulesQty()},
+                {"2", "Solar Inverter", "On-grid type MPPT based solar inverter 3 KW", "V SOLE", "", quotation.getSolarInverterQty()},
+                {"3", "Mounting Structure", "Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW", "", "", quotation.getMountingStructureQty()},
+                {"4", "AC Cables", "AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)", "Polycab/ISI", "", quotation.getAcCablesQty()},
+                {"5", "DC Cables", "DC side copper", "Polycab/ISI", "", quotation.getDcCablesQty()},
+                {"6", "Distribution Boxes (DC)", "DC distribution box with built-in SPD and DC Fuses IP65 protected", "HEVELLS & PHOENIX", "", quotation.getDistributionBoxesDcQty()},
+                {"7", "Distribution Boxes (AC)", "AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR", "HEVELLS & PHOENIX", "", quotation.getDistributionBoxesAcQty()},
+                {"8", "Earthing", "Copper bonded chemical earthings. Insulated copper conductor for earthing connection", "TRUE POWER", "", quotation.getEarthlingQty()},
+                {"9", "System Monitoring", "Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter", "AS PER INVERTER", "", quotation.getSystemMonitoringQty()},
+                {"10", "MC4 Connectors", "TUV approved, UV protected STD", "", "", quotation.getMc4ConnectorsQty()},
+                {"11", "Switchgears", "MCBs, MCCBs, Isolators etc.", "HAVELLS/ABB", "", quotation.getSwitchGearsQty()},
+                {"12", "Balance of System", "TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.", "Polycab/Steel grip", "", quotation.getBalanceOfSystemQty()},
+                {"13", "Net Meter", "Net meter and modem for MPEB", "SECURE/HPL", "", quotation.getNetMeterQty()}
         };
-        // Adding rows using loop
+        // Adding rows to the table
         for (String[] row : data) {
             for (String cellData : row) {
-                addTableCellWithBorder(technicalSpecificationsTable, cellData, normalFont, null);
+                addTableCellWithBorder(technicalSpecificationsTable, cellData, smallerFont, null);
             }
         }
 

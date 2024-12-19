@@ -36,9 +36,19 @@ public class Quotation {
     private LocalDate proposalBasesInquiryReceivedDate;
     private String offerValidity;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "components_id")
-    private Component components;
+    private String solarPVModulesQty;
+    private String solarInverterQty;
+    private String mountingStructureQty;
+    private String acCablesQty;
+    private String dcCablesQty;
+    private String distributionBoxesDcQty;
+    private String distributionBoxesAcQty;
+    private String earthlingQty;
+    private String systemMonitoringQty;
+    private String mc4ConnectorsQty;
+    private String switchGearsQty;
+    private String balanceOfSystemQty;
+    private String netMeterQty;
 
     public Long getId() {
         return id;
@@ -200,12 +210,108 @@ public class Quotation {
         this.offerValidity = offerValidity;
     }
 
-    public Component getComponents() {
-        return components;
+    public String getSolarPVModulesQty() {
+        return solarPVModulesQty;
     }
 
-    public void setComponents(Component components) {
-        this.components = components;
+    public void setSolarPVModulesQty(String solarPVModulesQty) {
+        this.solarPVModulesQty = solarPVModulesQty;
+    }
+
+    public String getSolarInverterQty() {
+        return solarInverterQty;
+    }
+
+    public void setSolarInverterQty(String solarInverterQty) {
+        this.solarInverterQty = solarInverterQty;
+    }
+
+    public String getMountingStructureQty() {
+        return mountingStructureQty;
+    }
+
+    public void setMountingStructureQty(String mountingStructureQty) {
+        this.mountingStructureQty = mountingStructureQty;
+    }
+
+    public String getAcCablesQty() {
+        return acCablesQty;
+    }
+
+    public void setAcCablesQty(String acCablesQty) {
+        this.acCablesQty = acCablesQty;
+    }
+
+    public String getDcCablesQty() {
+        return dcCablesQty;
+    }
+
+    public void setDcCablesQty(String dcCablesQty) {
+        this.dcCablesQty = dcCablesQty;
+    }
+
+    public String getDistributionBoxesDcQty() {
+        return distributionBoxesDcQty;
+    }
+
+    public void setDistributionBoxesDcQty(String distributionBoxesDcQty) {
+        this.distributionBoxesDcQty = distributionBoxesDcQty;
+    }
+
+    public String getDistributionBoxesAcQty() {
+        return distributionBoxesAcQty;
+    }
+
+    public void setDistributionBoxesAcQty(String distributionBoxesAcQty) {
+        this.distributionBoxesAcQty = distributionBoxesAcQty;
+    }
+
+    public String getEarthlingQty() {
+        return earthlingQty;
+    }
+
+    public void setEarthlingQty(String earthlingQty) {
+        this.earthlingQty = earthlingQty;
+    }
+
+    public String getSystemMonitoringQty() {
+        return systemMonitoringQty;
+    }
+
+    public void setSystemMonitoringQty(String systemMonitoringQty) {
+        this.systemMonitoringQty = systemMonitoringQty;
+    }
+
+    public String getMc4ConnectorsQty() {
+        return mc4ConnectorsQty;
+    }
+
+    public void setMc4ConnectorsQty(String mc4ConnectorsQty) {
+        this.mc4ConnectorsQty = mc4ConnectorsQty;
+    }
+
+    public String getSwitchGearsQty() {
+        return switchGearsQty;
+    }
+
+    public void setSwitchGearsQty(String switchGearsQty) {
+        this.switchGearsQty = switchGearsQty;
+    }
+
+    public String getBalanceOfSystemQty() {
+        return balanceOfSystemQty;
+    }
+
+    public void setBalanceOfSystemQty(String balanceOfSystemQty) {
+        this.balanceOfSystemQty = balanceOfSystemQty;
+    }
+
+    public String getNetMeterQty() {
+        return netMeterQty;
+    }
+
+    public void setNetMeterQty(String netMeterQty) {
+        this.netMeterQty = netMeterQty;
     }
 }
 
