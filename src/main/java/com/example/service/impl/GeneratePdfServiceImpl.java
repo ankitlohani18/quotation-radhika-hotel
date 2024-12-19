@@ -46,14 +46,14 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         Font smallerFont = new Font(normalFont.getBaseFont(), 8, Font.BOLD);
 
         // Add Logo
-        addImageFromClasspath(document, "static/image/LogoImg.png", 150, 80, Element.ALIGN_RIGHT);
+        addImageFromClasspath(document, "static/image/LogoRadhikaHotelNoText.png", 120, 120, Element.ALIGN_RIGHT);
 
         // Title Section
-        addParagraph(document, "RADHIKA ENTERPRISES", titleFont, Element.ALIGN_CENTER, 10);
-        addParagraph(document, "HEADING TOWARDS HEALTHIER EARTH", normalFont, Element.ALIGN_CENTER, 20);
+        addParagraph(document, "RADHIKA ENTERPRISES", titleFont, Element.ALIGN_LEFT, 10);
+        addParagraph(document, "HEADING TOWARDS HEALTHIER EARTH", normalFont, Element.ALIGN_LEFT, 20);
 
         // Add Hotel Image
-        addImageFromClasspath(document, "static/image/HotelImg.png", 350, 200, Element.ALIGN_CENTER);
+        addImageFromClasspath(document, "static/image/HotelImg.png", 350, 250, Element.ALIGN_CENTER);
 
         // Contact Information
         addParagraph(document, "E-Mail:  sanjayboriya13@gmail.com | Contact: 9993957179\n" +
@@ -135,7 +135,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
 
         addParagraph(document, "Technical Specifications and BOM FOR 03 KW SOLAR POWER PLANT:", boldFont, Element.ALIGN_CENTER, 15);
         // Technical Specifications Table
-        PdfPTable technicalSpecificationsTable = createTable(6);
+        PdfPTable technicalSpecificationsTable = createTable(5);
         technicalSpecificationsTable.setWidthPercentage(113);
         technicalSpecificationsTable.setHorizontalAlignment(Element.ALIGN_CENTER);
         technicalSpecificationsTable.setPaddingTop(10);
@@ -144,24 +144,24 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
         addTableCellWithBorder(technicalSpecificationsTable, "Component", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(technicalSpecificationsTable, "Specification", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(technicalSpecificationsTable, "Make", boldFont, BaseColor.LIGHT_GRAY);
-        addTableCellWithBorder(technicalSpecificationsTable, "Z", boldFont, BaseColor.LIGHT_GRAY);
+//        addTableCellWithBorder(technicalSpecificationsTable, "Z", boldFont, BaseColor.LIGHT_GRAY);
         addTableCellWithBorder(technicalSpecificationsTable, "Quantity", boldFont, BaseColor.LIGHT_GRAY);
 
         // Define the data for rows
         String[][] data = {
-                {"1", "Solar PV Module", "MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW", "SUNBOND", "", quotation.getSolarPVModulesQty()},
-                {"2", "Solar Inverter", "On-grid type MPPT based solar inverter 3 KW", "V SOLE", "", quotation.getSolarInverterQty()},
-                {"3", "Mounting Structure", "Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW", "", "", quotation.getMountingStructureQty()},
-                {"4", "AC Cables", "AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)", "Polycab/ISI", "", quotation.getAcCablesQty()},
-                {"5", "DC Cables", "DC side copper", "Polycab/ISI", "", quotation.getDcCablesQty()},
-                {"6", "Distribution Boxes (DC)", "DC distribution box with built-in SPD and DC Fuses IP65 protected", "HEVELLS & PHOENIX", "", quotation.getDistributionBoxesDcQty()},
-                {"7", "Distribution Boxes (AC)", "AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR", "HEVELLS & PHOENIX", "", quotation.getDistributionBoxesAcQty()},
-                {"8", "Earthing", "Copper bonded chemical earthings. Insulated copper conductor for earthing connection", "TRUE POWER", "", quotation.getEarthlingQty()},
-                {"9", "System Monitoring", "Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter", "AS PER INVERTER", "", quotation.getSystemMonitoringQty()},
-                {"10", "MC4 Connectors", "TUV approved, UV protected STD", "", "", quotation.getMc4ConnectorsQty()},
-                {"11", "Switchgears", "MCBs, MCCBs, Isolators etc.", "HAVELLS/ABB", "", quotation.getSwitchGearsQty()},
-                {"12", "Balance of System", "TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.", "Polycab/Steel grip", "", quotation.getBalanceOfSystemQty()},
-                {"13", "Net Meter", "Net meter and modem for MPEB", "SECURE/HPL", "", quotation.getNetMeterQty()}
+                {"1", "Solar PV Module", "MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW", "SUNBOND", quotation.getSolarPVModulesQty()},
+                {"2", "Solar Inverter", "On-grid type MPPT based solar inverter 3 KW", "V SOLE", quotation.getSolarInverterQty()},
+                {"3", "Mounting Structure", "Mounting Structure 140*60 MM & 41*41 Galvanized 3 KW", quotation.getMountingStructureQty()},
+                {"4", "AC Cables", "AC side-AL. ARMORED/COPPER FLEXIBLE (AS PER SIDE CONDITION)", "Polycab/ISI", quotation.getAcCablesQty()},
+                {"5", "DC Cables", "DC side copper", "Polycab/ISI", quotation.getDcCablesQty()},
+                {"6", "Distribution Boxes (DC)", "DC distribution box with built-in SPD and DC Fuses IP65 protected", "HEVELLS & PHOENIX", quotation.getDistributionBoxesDcQty()},
+                {"7", "Distribution Boxes (AC)", "AC Combiner box with built-in SPD and AC MCB/MCCB IP65 protected Spike type lighting arrestor, 1 MTR", "HEVELLS & PHOENIX", quotation.getDistributionBoxesAcQty()},
+                {"8", "Earthing", "Copper bonded chemical earthings. Insulated copper conductor for earthing connection", "TRUE POWER", quotation.getEarthlingQty()},
+                {"9", "System Monitoring", "Wi-Fi based Remote monitoring and weather monitoring system and data logger inbuilt in the inverter", "AS PER INVERTER", quotation.getSystemMonitoringQty()},
+                {"10", "MC4 Connectors", "TUV approved, UV protected STD", "", quotation.getMc4ConnectorsQty()},
+                {"11", "Switchgears", "MCBs, MCCBs, Isolators etc.", "HAVELLS/ABB", quotation.getSwitchGearsQty()},
+                {"12", "Balance of System", "TUV approved PVC conduits, cable ties, electric tapes, enclosures etc.", "Polycab/Steel grip", quotation.getBalanceOfSystemQty()},
+                {"13", "Net Meter", "Net meter and modem for MPEB", "SECURE/HPL", quotation.getNetMeterQty()}
         };
         // Adding rows to the table
         for (String[] row : data) {
@@ -172,15 +172,15 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
 
         document.add(technicalSpecificationsTable);
 
-        addMultipleNewLines(document, 7);
+        addMultipleNewLines(document, 1);
         addParagraph(document, "As per your requirements we are sending you the quotation for ON-grid Solar Power Project.\n" +
                 "Kindly find the details below:", normalFont, Element.ALIGN_LEFT, 10);
 
         PdfPTable priceTable = createTable(3);
 
-        addTableCellWithBorder(priceTable, "PLANT SIZE", boldFont, BaseColor.LIGHT_GRAY);
-        addTableCellWithBorder(priceTable, "Total Amount Payable", boldFont, BaseColor.LIGHT_GRAY);
-        addTableCellWithBorder(priceTable, "Direct Subsidy Benefit in consumer account after commissioning of solar power plant:", boldFont, BaseColor.LIGHT_GRAY);
+        addTableCellWithBorder(priceTable, "PLANT SIZE", boldFont, BaseColor.ORANGE);
+        addTableCellWithBorder(priceTable, "Total Amount Payable", boldFont, BaseColor.ORANGE);
+        addTableCellWithBorder(priceTable, "Direct Subsidy Benefit in consumer account after commissioning of solar power plant:", boldFont, BaseColor.ORANGE);
 
         addTableCellWithBorder(priceTable, quotation.getPlantSize(), boldFont, null);
         addTableCellWithBorder(priceTable, quotation.getTotalAmountPayable(), boldFont, null);
@@ -312,6 +312,7 @@ public class GeneratePdfServiceImpl implements GeneratePdfService {
     private void addColspanHeader(PdfPTable table, String text, Font font) {
         PdfPCell cell = new PdfPCell(new Phrase(text, font));
         cell.setColspan(table.getNumberOfColumns());
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
         cell.setPadding(10);
         table.addCell(cell);
