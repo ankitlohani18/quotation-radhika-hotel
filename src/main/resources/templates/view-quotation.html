@@ -34,10 +34,6 @@
         <td th:text="${quotation.subject}"></td>
     </tr>
     <tr>
-        <td>Thank You:</td>
-        <td th:text="${quotation.thankYou}"></td>
-    </tr>
-    <tr>
         <th colspan="2">Proposed Site</th>
     </tr>
     <tr>
@@ -115,14 +111,14 @@
         <td>1</td>
         <td>Solar PV Modules</td>
         <td>MONOPERC HALFCUT BIFACIAL PANEL 545WP 03 KW</td>
-        <td th:text="${quotation.solarPVModulesBrand}"></td>
+        <td th:text="${quotation.solarPVModulesMake}"></td>
         <td th:text="${quotation.solarPVModulesQty}"></td>
     </tr>
     <tr>
         <td>2</td>
         <td>Solar Inverter</td>
         <td>On-grid type MPPT based solar inverter with grid energy export function 03 KW</td>
-        <td th:text="${quotation.solarInverterBrand}"></td>
+        <td th:text="${quotation.solarInverterMake}"></td>
         <td th:text="${quotation.solarInverterQty}"></td>
     </tr>
     <tr>
@@ -211,7 +207,12 @@
         <th>Direct Subsidy Benefit</th>
     </tr>
     <tr>
-        <td th:text="${quotation.plantSize}"></td>
+        <td>
+            PRICES
+            <label th:text="${quotation.plantCapacity}"></label>
+            <label th:text="${quotation.onOffGrid}"></label>
+            POWER PLANT
+        </td>
         <td th:text="${quotation.totalAmountPayable}"></td>
         <td th:text="${quotation.directSubsidyBenefit}"></td>
     </tr>

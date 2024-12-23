@@ -55,8 +55,8 @@ public class Quotation {
     private String totalAmountPayable;
     private String directSubsidyBenefit;
 
-    private String solarPVModulesBrand;
-    private String solarInverterBrand;
+    private String solarPVModulesMake;
+    private String solarInverterMake;
     private String otherBrand;
 
 
@@ -357,20 +357,20 @@ public class Quotation {
         this.directSubsidyBenefit = directSubsidyBenefit;
     }
 
-    public String getSolarPVModulesBrand() {
-        return solarPVModulesBrand;
+    public String getSolarPVModulesMake() {
+        return solarPVModulesMake;
     }
 
-    public void setSolarPVModulesBrand(String solarPVModulesBrand) {
-        this.solarPVModulesBrand = solarPVModulesBrand;
+    public void setSolarPVModulesMake(String solarPVModulesMake) {
+        this.solarPVModulesMake = solarPVModulesMake;
     }
 
-    public String getSolarInverterBrand() {
-        return solarInverterBrand;
+    public String getSolarInverterMake() {
+        return solarInverterMake;
     }
 
-    public void setSolarInverterBrand(String solarInverterBrand) {
-        this.solarInverterBrand = solarInverterBrand;
+    public void setSolarInverterMake(String solarInverterMake) {
+        this.solarInverterMake = solarInverterMake;
     }
 
     public String getOtherBrand() {
